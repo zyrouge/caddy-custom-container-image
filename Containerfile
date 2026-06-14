@@ -9,11 +9,11 @@ ARG CADDY_VERSION=0.0.0
 ARG CADDY_BUILDER_IMAGE_NAME=docker.io/library/caddy
 ARG CADDY_BUILDER_IMAGE_TAG=builder-alpine
 
-FROM ${CADDY_BUILDER_IMAGE_NAME}:${CADDY_BUILDER_IMAGE_TAG} as builder
+FROM $CADDY_BUILDER_IMAGE_NAME:$CADDY_BUILDER_IMAGE_TAG as builder
 
 RUN xcaddy build --with github.com/caddy-dns/cloudflare
 
-FROM ${CADDY_IMAGE_NAME}:${CADDY_IMAGE_TAG}
+FROM $CADDY_IMAGE_NAME:$CADDY_IMAGE_TAG
 
 LABEL maintainer="$MAINTAINER"
 LABEL org.opencontainers.image.name="$IMAGE_NAME"
