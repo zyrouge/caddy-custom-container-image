@@ -26,7 +26,6 @@ if [ -z "${NEEDS_RELEASE:-}" ]; then
     IMAGE_MANIFEST=$(podman manifest inspect "$IMAGE_NAME:$CADDY_VERSION" 2>&1)
     FOUND_VERSION_EXIT_CODE="$?"
     set -e
-    echo "Image manifest check exit code: $FOUND_VERSION_EXIT_CODE"
     if [ "$FOUND_VERSION_EXIT_CODE" -eq 0 ]; then
         NEEDS_RELEASE="false"
     elif [ "$FOUND_VERSION_EXIT_CODE" -eq 125 ]; then
