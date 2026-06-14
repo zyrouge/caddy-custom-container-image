@@ -21,4 +21,4 @@ LABEL org.opencontainers.image.created="$CREATED"
 LABEL org.opencontainers.image.version="$CADDY_VERSION"
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
-ENTRYPOINT ["/usr/bin/caddy"]
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
