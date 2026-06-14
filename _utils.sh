@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo pipefail
+set -eu
 
 if [ -z "${ROOT_DIR:-}" ]; then
     exit 67
